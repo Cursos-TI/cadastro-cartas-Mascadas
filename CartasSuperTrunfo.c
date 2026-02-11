@@ -9,7 +9,7 @@ int main() {
   char estadop1[30],estadop2[30],cod_cartap1[4] = "" , cod_cartap2[4] = "";
   char nome_cidadep1[30],nome_cidadep2[30];
   int populacaop1,populacaop2,ponto_turisticop1,ponto_turisticop2;
-  float areap1, areap2, pibp1,pibp2;
+  float areap1, areap2, pibp1,pibp2,densiP1,densiP2,pibpc1,pibpc2;
 
 
   //iniciando a coleta de dados do Jogador 1
@@ -35,6 +35,9 @@ int main() {
   printf("Digite a quantidade de pontos turisticos da sua cidade.\n");
   scanf(" %d",&ponto_turisticop1);
 
+  densiP1 = (float) populacaop1/areap1;
+
+  pibpc1  = (float) pibp1/populacaop1;
 
   //Iniciando a coleta de dados do Jogador 2
   printf("Player 2 insira sua carta.\n");
@@ -59,6 +62,8 @@ int main() {
   printf("Digite a quantidade de pontos turisticos da sua cidade.\n");
   scanf(" %d",&ponto_turisticop2);
 
+  densiP2 = (float) populacaop2/areap2;
+  pibpc2  = (float) pibp2/populacaop2;
 
 
   //Mostrando a carta do Jogador 1
@@ -68,9 +73,10 @@ int main() {
   printf("Nome da Cidade: %s\n", nome_cidadep1);
   printf("População: %d\n",populacaop1);
   printf("Área: %.2f Km²\n",areap1);
-  printf("PIB: %f\n", pibp1);
-  printf("Número de Pontos Turísticos: %d\n\n", ponto_turisticop1);
-
+  printf("PIB: %.2f\n", pibp1);
+  printf("Número de Pontos Turísticos: %d\n", ponto_turisticop1);
+  printf("Densidade Populacional: %.2f hab/km²\n",densiP1 );
+  printf("PIB per Capita: %.2f reais \n\n",pibpc1);
 
     printf("----------------------------------------\n\n");
   //Mostrando a carta do Jogador 2
@@ -82,5 +88,7 @@ int main() {
   printf("Área: %.2f Km²\n",areap2);
   printf("PIB: %f\n", pibp2);
   printf("Número de Pontos Turísticos: %d\n", ponto_turisticop2);
+  printf("Densidade Populacional: %.2f hab/km²\n",densiP1 );
+  printf("PIB per Capita: %.2f reais \n\n",pibpc1);
   return 0;
 } 
