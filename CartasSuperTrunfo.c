@@ -8,8 +8,10 @@ int main() {
   //Declaração de variaveis
   char estadop1[30],estadop2[30],cod_cartap1[4] = "" , cod_cartap2[4] = "";
   char nome_cidadep1[30],nome_cidadep2[30];
-  int populacaop1,populacaop2,ponto_turisticop1,ponto_turisticop2;
-  float areap1, areap2, pibp1,pibp2,densiP1,densiP2,pibpc1,pibpc2;
+  unsigned long int populacaop1,populacaop2;
+  int ponto_turisticop1,ponto_turisticop2;
+  float areap1, areap2,densiP1,densiP2,pibpc1,pibpc2;
+  double superPoder1, superPoder2, pibp1,pibp2;
 
 
   //iniciando a coleta de dados do Jogador 1
@@ -30,14 +32,20 @@ int main() {
   scanf(" %f",&areap1);
 
   printf("Digite o PIB da sua cidade.\n");
-  scanf(" %f",&pibp1);
+  scanf(" %Lf",&pibp1);
 
   printf("Digite a quantidade de pontos turisticos da sua cidade.\n");
   scanf(" %d",&ponto_turisticop1);
 
+//Calcular densidade populacional cidade 1
   densiP1 = (float) populacaop1/areap1;
-
+//Calcular Pib Cidade 1
   pibpc1  = (float) pibp1/populacaop1;
+//Calcular Super Poder da Ciddade
+superPoder1 = (double) populacaop1 + areap1 + pibp1 + ponto_turisticop1 + pibpc1 + (1.0 / densiP1);
+
+printf("\n\n------------------------------------------------------\n\n");
+
 
   //Iniciando a coleta de dados do Jogador 2
   printf("Player 2 insira sua carta.\n");
@@ -57,13 +65,19 @@ int main() {
   scanf(" %f",&areap2);
 
   printf("Digite o PIB da sua cidade.\n");
-  scanf(" %f",&pibp2);
+  scanf(" %lf",&pibp2);
 
   printf("Digite a quantidade de pontos turisticos da sua cidade.\n");
   scanf(" %d",&ponto_turisticop2);
 
+
+
+//Calculo de densidade Populacional da Cidade 2
   densiP2 = (float) populacaop2/areap2;
+//Calcular Pib Cidade 2
   pibpc2  = (float) pibp2/populacaop2;
+//Calcular Super Poder da Ciddade
+superPoder2 = (double) populacaop2 + areap2 + pibp2 + pibpc2 + ponto_turisticop2 + (1.0 / densiP2);
 
 
   //Mostrando a carta do Jogador 1
@@ -71,12 +85,13 @@ int main() {
   printf("Estado: %s\n",estadop1);
   printf("Código: %s\n",cod_cartap1);
   printf("Nome da Cidade: %s\n", nome_cidadep1);
-  printf("População: %d\n",populacaop1);
-  printf("Área: %.2f Km²\n",areap1);
-  printf("PIB: %.2f\n", pibp1);
-  printf("Número de Pontos Turísticos: %d\n", ponto_turisticop1);
-  printf("Densidade Populacional: %.2f hab/km²\n",densiP1 );
-  printf("PIB per Capita: %.2f reais \n\n",pibpc1);
+  printf("População: %d, carta 1 venceu? (%d)\n",populacaop1, populacaop1 > populacaop2);
+  printf("Área: %.2f Km², carta 1 venceu? (%d)\n",areap1, areap1 > areap2);
+  printf("PIB: %.2f, carta 1 venceu? (%d)\n", pibp1, pibp1 > pibp2);
+  printf("Número de Pontos Turísticos: %d, carta 1 venceu? (%d)\n", ponto_turisticop1, ponto_turisticop1 > ponto_turisticop2);
+  printf("Densidade Populacional: %.2f hab/km², carta 1 venceu? (%d)\n",densiP1, densiP1 < densiP2 );
+  printf("PIB per Capita: %.2f reais, carta 1 venceu? (%d) \n",pibpc1, pibpc1 > pibpc2);
+  printf("Super Poder: %.2f, carta 1 venceu? (%d)\n\n",superPoder1, superPoder1 > superPoder2);
 
     printf("----------------------------------------\n\n");
   //Mostrando a carta do Jogador 2
@@ -84,11 +99,16 @@ int main() {
   printf("Estado: %s\n",estadop2);
   printf("Código: %s\n",cod_cartap2);
   printf("Nome da Cidade: %s\n", nome_cidadep2);
-  printf("População: %d\n",populacaop2);
-  printf("Área: %.2f Km²\n",areap2);
-  printf("PIB: %f\n", pibp2);
-  printf("Número de Pontos Turísticos: %d\n", ponto_turisticop2);
-  printf("Densidade Populacional: %.2f hab/km²\n",densiP1 );
-  printf("PIB per Capita: %.2f reais \n\n",pibpc1);
+  printf("População: %d, carta 2 venceu? (%d)\n",populacaop2, populacaop2 > populacaop1);
+  printf("Área: %.2f Km², carta 2 venceu? (%d)\n",areap2, areap2 > areap1);
+  printf("PIB: %2.f, carta 2 venceu? (%d)\n", pibp2, pibp2 > pibp1);
+  printf("Número de Pontos Turísticos: %d, carta 2 venceu? (%d)\n", ponto_turisticop2, ponto_turisticop2 > ponto_turisticop1);
+  printf("Densidade Populacional: %.2f hab/km², carta 2 venceu? (%d)\n",densiP2, densiP2 < densiP1 );
+  printf("PIB per Capita: %.2f reais, carta 2 venceu? (%d) \n",pibpc2, pibpc2 > pibpc1);
+  printf("Super Poder: %.2f, carta 2 venceu? (%d)\n\n",superPoder2, superPoder2 > superPoder1);
+
+
+
+
   return 0;
 } 
