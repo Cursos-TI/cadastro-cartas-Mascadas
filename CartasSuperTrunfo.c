@@ -80,6 +80,23 @@ printf("\n\n------------------------------------------------------\n\n");
 superPoder2 = (double) populacaop2 + areap2 + pibp2 + pibpc2 + ponto_turisticop2 + (1.0 / densiP2);
 
 
+  //Comparação da população das vagas
+  printf("\n\nComparação do Atributo de População:\n\n");
+  if (populacaop1 > populacaop2)
+  {
+    printf("Carta 1 - %s (%s): %d.\n",nome_cidadep1,estadop1,populacaop1);
+    printf("Carta 2 - %s (%s): %d.\n",nome_cidadep2,estadop2,populacaop2);
+    printf("Carta 1 (%s) venceu!!\n\n", nome_cidadep1);
+  }else{
+    printf("Carta 1 - %s (%s): %d.\n",nome_cidadep1,estadop1,populacaop1);
+    printf("Carta 2 - %s (%s): %d.\n",nome_cidadep2,estadop2,populacaop2);
+    printf("Carta 2 (%s) venceu!!\n\n",nome_cidadep2 );
+  }
+  
+
+
+  printf("Resumo por carta\n");
+  printf("----------------------------------------\n\n");
   //Mostrando a carta do Jogador 1
   printf("Jogador 1\n");
   printf("Estado: %s\n",estadop1);
